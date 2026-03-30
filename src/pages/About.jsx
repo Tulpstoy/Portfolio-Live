@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import './About.css';
 import profileImage from '../assets/SquarePortrait.jpg';
+import resumePdf from '../assets/documents/micahbron_resume.pdf';
 import Polaroid from '../components/Building_Blocks/Polaroid';
 import ConnectSection from '../components/ProjectComponents/ConnectSection';
 
@@ -56,7 +57,7 @@ const About = () => {
                   <p className="page-subtitle">I'm just starting out in the world of web development, but I'm a quick learner and a team player and I'm always looking for new challenges.</p>
                   <div className="linkedin-blurb">
                     <a 
-                      href="https://www.linkedin.com/in/micah-bron/" 
+                      href="https://www.linkedin.com/in/micahbron" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="linkedin-link"
@@ -69,7 +70,7 @@ const About = () => {
                   </div>
                   <div className="resume-blurb">
                     <a 
-                      href="https://google.com" 
+                      href={resumePdf} 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="resume-link"
