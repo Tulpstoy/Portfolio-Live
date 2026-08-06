@@ -1,22 +1,23 @@
 .code-section {
-  margin-bottom: 24px;
+  margin-bottom: 18px;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(31, 38, 135, 0.1);
+  border: 1.5px solid var(--ink, #262229);
+  box-shadow: 4px 4px 0 rgba(38, 34, 41, 0.14);
 }
 
 .code-header {
-  padding: 16px;
-  background: #f8f8f8;
+  padding: 14px 16px;
+  background: white;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease;
 }
 
 .code-header:hover {
-  background: #f0f0f0;
+  background: var(--paper, #FAF6EE);
 }
 
 .code-title-section {
@@ -28,10 +29,10 @@
 
 .code-header h4 {
   margin: 0;
-  font-family: 'Roboto', sans-serif !important;
-  font-size: 1.1rem;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1.05rem;
   font-weight: 600;
-  color: #333;
+  color: var(--ink, #262229);
 }
 
 .language-indicator {

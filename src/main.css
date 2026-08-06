@@ -34,7 +34,8 @@ h1 {
   font-family: 'Tulpwriting', serif;
   font-size: 3rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 0.6rem;
+  line-height: 1.15;
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -42,49 +43,53 @@ h1 {
 
 h2 {
   font-family: 'Tulpwriting', serif;
-  font-size: 2.25rem;
+  font-size: 2.15rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
 }
 
 h3 {
   font-family: 'Tulpwriting', serif;
-  font-size: 1.75rem;
+  font-size: 1.65rem;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.4rem;
+  line-height: 1.25;
 }
 
 h4 {
   font-family: 'Tulpwriting', serif;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
+  line-height: 1.3;
 }
 
 h5 {
-  font-size: 1.4rem;
-  font-weight: 400; 
+  font-size: 1.15rem;
+  font-weight: 500;
   color: var(--text-secondary);
-  margin-bottom: 0.75rem;
-  letter-spacing: 0.25px;
-  line-height: 1.5;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.15px;
+  line-height: 1.45;
 }
 
 
 h6 {
-  font-size: 1.125rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 p {
   font-size: 1rem;
   color: var(--text-secondary);
-  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  margin-bottom: 1.15rem;
 }
 
 /* Page Titles */
@@ -92,7 +97,8 @@ p {
   font-family: 'Tulpwriting', serif;
   font-size: 3.5rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -102,19 +108,20 @@ p {
 /* Section Titles */
 .section-title {
   font-family: 'Tulpwriting', serif;
-  font-size: 2.5rem;
+  font-size: 2.35rem;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 1rem;
+  margin-bottom: 0.6rem;
+  line-height: 1.2;
 }
 
 /* Value Titles */
 .value-title {
   font-family: 'Tulpwriting', serif;
-  font-size: 1.75rem;
+  font-size: 1.65rem;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 /* Grid System */
@@ -199,7 +206,10 @@ body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     color: var(--text-primary);
     line-height: 1.5;
-    background: #FFFFFF;
+    background:
+        linear-gradient(var(--paper-line) 1px, transparent 1px) 0 0/28px 28px,
+        linear-gradient(90deg, var(--paper-line) 1px, transparent 1px) 0 0/28px 28px,
+        var(--paper);
 }
 
 /* Responsive Design */
@@ -220,8 +230,85 @@ body {
 :root {
     --gradient-primary: linear-gradient(135deg, #FF8C00, #FF0080, #40E0D0);
     --gradient-background: linear-gradient(135deg, rgba(255,140,0,0.1), rgba(255,0,128,0.1), rgba(64,224,208,0.1));
-    --text-primary: #333333;
-    --text-secondary: #666666;
+    --text-primary: #262229;
+    --text-secondary: #6b6270;
     --spacing-unit: 1rem;
     --border-radius: 12px;
+
+    /* Scrapbook system */
+    --ink: #262229;
+    --ink-soft: #6b6270;
+    --paper: #FAF6EE;
+    --paper-line: rgba(38, 34, 41, 0.055);
+    --sunset: #FF8C00;
+    --flamingo: #FF0080;
+    --turquoise: #40E0D0;
+    --tape-mint: #C9EFDF;
+    --tape-peach: #FFE0AC;
+    --tape-pink: #FFD2E6;
+    --tape-sky: #CBE7FF;
+    --tape-lilac: #E7D6FF;
+    --font-mono: ui-monospace, 'SF Mono', Menlo, monospace;
+}
+
+/* Washi tape accent - position it on the element that needs it */
+.tape {
+    position: absolute;
+    width: 54px;
+    height: 22px;
+    background: rgba(255, 224, 130, 0.75);
+    border: 1px solid rgba(38, 34, 41, 0.08);
+    box-shadow: 0 2px 4px rgba(38, 34, 41, 0.12);
+    pointer-events: none;
+}
+
+.tape.mint { background: rgba(201, 239, 223, 0.8); }
+.tape.pink { background: rgba(255, 210, 230, 0.8); }
+.tape.sky { background: rgba(203, 231, 255, 0.8); }
+
+/* Sticker badge - pill with hard ink border + offset shadow.
+   Rotation is set per-instance via the --r custom property so the idle
+   float animation can layer a bob on top without fighting a hardcoded
+   transform: rotate(). */
+.sticker {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font: 700 0.72rem/1 var(--font-mono);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    border: 1.5px solid var(--ink);
+    box-shadow: 3px 3px 0 rgba(38, 34, 41, 0.14);
+    color: var(--ink);
+    white-space: nowrap;
+    transform: rotate(var(--r, 0deg));
+    animation: stickerFloat 3.6s ease-in-out infinite;
+    animation-delay: var(--float-delay, 0s);
+}
+
+@keyframes stickerFloat {
+    0%, 100% { transform: rotate(var(--r, 0deg)) translateY(0); }
+    50% { transform: rotate(var(--r, 0deg)) translateY(-5px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sticker {
+        animation: none;
+    }
+}
+
+.sticker.mint { background: var(--tape-mint); }
+.sticker.peach { background: var(--tape-peach); }
+.sticker.pink { background: var(--tape-pink); }
+.sticker.sky { background: var(--tape-sky); }
+.sticker.lilac { background: var(--tape-lilac); }
+
+.sticker .live-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #2ecc71;
 }
